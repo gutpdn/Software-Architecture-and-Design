@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.ListIterator;
 
-public class Book {
+public class Book implements IPrintScreen, IPrintFile{
     private String title;
     private List<String> pages;
     private ListIterator<String> iterator;
@@ -40,6 +40,7 @@ public class Book {
         }
     }
 
+    @Override
     public void printToScreen() {
         Book book = this;
         do {
@@ -47,6 +48,7 @@ public class Book {
         } while (book.turnToNextPage());
     }
 
+    @Override
     public void printToFile() {
         Book book = this;
         boolean isEven = false;
